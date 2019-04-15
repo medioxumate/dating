@@ -16,31 +16,48 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <!-- Custom Stylesheet-->
+    <link rel="stylesheet" href="../styles/frog.css">
     <title>Green Bois</title>
 </head>
-<body>
+<body id="bootstrap-overrides">
+    <!-- Header and nav -->
     <header>
-        <p>GREEN BOIS</p>
+        <div class ="display-1">
+            <p class="text-uppercase">Green Bois</p>
+        </div>
+        <nav></nav>
     </header>
-    <section>
-        <div>
-            <h1>Welcome to Green Bois!</h1>
-            <p>Welcome to the first and only dating site for gay frogs!
-                Here at <em>Green Bois</em>, we believe that it hard enough
-                finding the love of your life hard enough when your a frog and also gay.
-                That is why our mission is to assist in your hopping towards happiness.
-                We match users based on special interests and location.
-            </p>
+
+    <!-- main body -->
+    <section class ="container-fluid" id ="body">
+        <div class ="row">
+            <div class ="col">
+                <h1>Welcome to Green Bois!</h1>
+                <p>Welcome to the first and only dating site for gay frogs!
+                    Here at <em>Green Bois</em>, we believe that it hard enough
+                    finding the love of your life hard enough when your a frog and also gay.
+                    That is why our mission is to assist in your hopping towards happiness.
+                    We match users based on special interests and location.
+                </p>
+                <h1>Don't take our word for it. Take theirs!</h1>
+            </div>
+            <div class ="col">
+                <div class ="row-3">
+                    <img class ="img-fluid rounded" src="../images/GayFrogs.jpg" alt="Pride Frog"/>
+                </div>
+            </div>
         </div>
-        <div>
-            <h1>Don't take our word for it. Take theirs!</h1>
+        <div class ="row" id ="quote1">
+            <p><q class><em>Ribbit, ribbit ribbit ribbit ribbit ribbit ribbit. Ribbit ribbit.
+                Ribbit</em></q> - Burt</p>
         </div>
-        <div>
-            <button>Create a Profile!</button>
+        <div class ="row" id ="quote2">
+            <p><q><em>Ribbit, ribbit ribbit, ribbit ribbit.</em></q> - Kitty</p>
         </div>
-    </section>
-    <section>
-        <img src="../images/GayFrogs.jpg" alt="Pride Frog"/>
+        <div class ="row" id ="button">
+            <button class="rounded">Create a Profile!</button>
+        </div>
     </section>
 
     <!-- Optional JavaScript -->
