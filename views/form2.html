@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <!
-* Results page for Green Bois profiles
+* Sign-up page part 2 for Green Bois profiles
 * Created in PhpStorm.
 * implements Bootstrap
 * @author Brian Kiehn
-* @version 1.0
+* @version 2.0
 * @date 4/20/2019
 >
 <html lang="en">
@@ -21,13 +21,19 @@
     <title>Title</title>
 </head>
 <body>
-    {{@SESSION.fn}}
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <h1>Profile</h1>
+    <section class ="container-fluid">
+        <form>
+            <div class ="row">
+                <div class ="col">
+                    <label>Email:<input type ="text"></label><br>
+                    <label>State<input type ="text"></label>
+                </div>
+                <div class ="col">
+                    <label>Biography<br><textarea rows="10" cols="60"></textarea></label>
+                </div>
+            </div>
+        </form>
+    </section>
 </body>
 </html>
