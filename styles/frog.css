@@ -1,8 +1,10 @@
-body#bootstrap-overrides{
+body{
     background-color: #06ff88;
 }
 
-.container-fluid {
-    background-color: #06ff88;
+input[type="text"]{
+    width: 100%;
 }
+
+
 
