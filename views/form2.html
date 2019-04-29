@@ -22,16 +22,21 @@
 </head>
 <body>
     <h1>Profile</h1>
-    <section class ="container-fluid">
-        <form>
-            <div class ="row">
-                <div class ="col">
-                    <label>Email:<input type ="text"></label><br>
-                    <label>State<input type ="text"></label>
-                </div>
-                <div class ="col">
-                    <label>Biography<br><textarea rows="10" cols="60"></textarea></label>
-                </div>
+    <section class="container-fluid border">
+        <form class ="row" action ="profile">
+            <div class="col-sm-4">
+                <label>Email:</label>
+                    <input type ="text" class="form-control">
+                <label>State</label>
+                    <input type ="text" class="form-control">
+            </div>
+            <div class="col-sm-4">
+                <label>Biography<br></label>
+                <textarea class="form-control" rows="10" cols="60"></textarea>
+            </div>
+            <div>
+                <button type ="submit">Next</button>
+                <button type ="reset">Reset</button>
             </div>
         </form>
     </section>
