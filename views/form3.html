@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!
+* Sign-up page part 3 for Green Bois profiles
+* Created in PhpStorm.
+* implements Bootstrap
+* @author Brian Kiehn
+* @version 1.0
+* @date 5/2/2019
+>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom Stylesheet-->
+    <link rel="stylesheet" href="styles/frog.css">
+
+    <title>Personal Information</title>
+</head>
+<body>
+<h1>Profile</h1>
+    <section class="container-fluid border">
+        <form class ="row" action ="profile">
+                <div class="col">
+                    <p>In-door Interests</p>
+                    <label><input type ="checkbox" name = flavor[] id="tv" value ="tv">tv</label>
+                    <label><input type ="checkbox" name = flavor[] id="pz" value ="puzzles">puzzles</label>
+                    <p>Out-door Interests</p>
+                    <label><input type ="checkbox" name = flavor[] id="sw" value ="swimming">swimming</label>
+                    <label><input type ="checkbox" name = flavor[] id="hp" value ="hopping">hopping</label>
+                </div>
+                <div class="col">
+                    <br><label><input type ="checkbox">movies</label>
+                    <label><input type ="checkbox" name = flavor[] id="rd" value ="reading">reading</label><br>
+                    <label><input type ="checkbox" name = flavor[] id="cr" value ="croaking">croaking</label>
+                    <label><input type ="checkbox" name = flavor[] id="sg" value ="singing">singing</label>
+                </div>
+                <div class="col">
+                    <br><label><input type ="checkbox" name = flavor[] id="ck" value ="cooking">cooking</label>
+                    <label><input type ="checkbox" name = flavor[] id="pc" value ="playing cards">playing cards</label><br>
+                    <label><input type ="checkbox" name = flavor[] id="fl" value ="floating">floating</label><br>
+                </div>
+                <div class="col">
+                    <br><label><input type ="checkbox" name = flavor[] id="bg" value ="board games">board games</label>
+                    <label><input type ="checkbox" name = flavor[] id="vg" value ="video games">video games</label><br>
+                    <label><input type ="checkbox" name = flavor[] id="cl" value ="collecting">collecting</label><br>
+                </div>
+                <button type ="submit">Next</button>
+                <button type ="reset">Reset</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>
