@@ -11,7 +11,6 @@
 //Session
 session_start();
 
-
 //turn on error reporting
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
@@ -40,19 +39,17 @@ $f3->route('GET /form', function() {
     //display a view
     $view = new Template();
 
+    echo $view->render('views/form1.html');
+});
+
+$f3->route('GET|POST /info', function() {
+
     $_SESSION ['fn'] = $_POST['fn'];
     $_SESSION ['ln'] = $_POST['ln'];
     $_SESSION ['age'] = $_POST['age'];
     $_SESSION ['g'] = $_POST['g'];
     $_SESSION ['ph'] = $_POST['ph'];
 
-    echo $view->render('views/form1.html');
-});
-
-$f3->route('GET|POST /info', function() {
-
-    $_SESSION ['em'] = $_POST['em'];
-    $_SESSION ['st'] = $_POST['st'];
 
     //display a view
     $view = new Template();
@@ -63,6 +60,7 @@ $f3->route('GET|POST /hobbies', function() {
 
     $_SESSION ['em'] = $_POST['em'];
     $_SESSION ['st'] = $_POST['st'];
+    $_SESSION ['bio'] = $_POST['bio'];
 
     //display a view
     $view = new Template();
@@ -72,8 +70,9 @@ $f3->route('GET|POST /hobbies', function() {
 $f3->route('GET|POST /profile', function($f3){
     //display a view
     $view = new Template();
-    print_r($_SESSION);
 
+    $hb = $_POST['hobbies'];
+    $_SESSION ['hb'] = $hb;
 
     echo $view->render('views/profile.html');
 });
