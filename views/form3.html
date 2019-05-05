@@ -23,32 +23,62 @@
 </head>
 <body>
 <h1>Profile</h1>
-    <section class="container-fluid border">
-        <form class ="row" action ="profile">
-                <div class="col">
+    <section class="container-fluid">
+        <form action ="profile">
+            <div class ="row">
+                <div class="col-12">
                     <p>In-door Interests</p>
-                    <label><input type ="checkbox" name = flavor[] id="tv" value ="tv">tv</label>
-                    <label><input type ="checkbox" name = flavor[] id="pz" value ="puzzles">puzzles</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="tv" value ="tv">tv</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="pz" value ="puzzles">puzzles</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="mi" value ="movies">movies</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="rd" value ="reading">reading</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="ck" value ="cooking">cooking</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="pc" value ="playing cards">playing cards</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="bg" value ="board games">board games</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="vg" value ="video games">video games</label>
+                </div>
+            </div>
+
+            <div class ="row border">
+                <div class ="col-12">
                     <p>Out-door Interests</p>
-                    <label><input type ="checkbox" name = flavor[] id="sw" value ="swimming">swimming</label>
-                    <label><input type ="checkbox" name = flavor[] id="hp" value ="hopping">hopping</label>
                 </div>
-                <div class="col">
-                    <br><label><input type ="checkbox">movies</label>
-                    <label><input type ="checkbox" name = flavor[] id="rd" value ="reading">reading</label><br>
-                    <label><input type ="checkbox" name = flavor[] id="cr" value ="croaking">croaking</label>
-                    <label><input type ="checkbox" name = flavor[] id="sg" value ="singing">singing</label>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="sw" value ="swimming">swimming</label>
                 </div>
-                <div class="col">
-                    <br><label><input type ="checkbox" name = flavor[] id="ck" value ="cooking">cooking</label>
-                    <label><input type ="checkbox" name = flavor[] id="pc" value ="playing cards">playing cards</label><br>
-                    <label><input type ="checkbox" name = flavor[] id="fl" value ="floating">floating</label><br>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="hp" value ="hopping">hopping</label>
                 </div>
-                <div class="col">
-                    <br><label><input type ="checkbox" name = flavor[] id="bg" value ="board games">board games</label>
-                    <label><input type ="checkbox" name = flavor[] id="vg" value ="video games">video games</label><br>
-                    <label><input type ="checkbox" name = flavor[] id="cl" value ="collecting">collecting</label><br>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="sg" value ="singing">singing</label>
                 </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="fl" value ="floating">floating</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="cl" value ="collecting">collecting</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name = hobbies[] id="cr" value ="croaking">croaking</label>
+                </div>
+            </div>
+            <div class ="row">
                 <button type ="submit">Next</button>
                 <button type ="reset">Reset</button>
             </div>
