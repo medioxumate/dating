@@ -17,6 +17,7 @@ error_reporting(E_ALL);
 
 //Require autoload file
 require_once('vendor/autoload.php');
+require('model/validation-functions.php');
 
 //create an instance of the Base class/ fat free object
 //instantiate fat free
@@ -43,8 +44,8 @@ $f3->route('GET|POST /form', function($f3) {
     if (isset($_POST['fn'])&&isset($_POST['ln'])&&isset($_POST['age'])
         &&isset($_POST['g'])&&isset($_POST['ph'])) {
         //check valid strings and numbers
-        if (validString($_POST['fn'])&&validString($_POST['ln'])&&is_Numeric($_POST['age'])
-            &&is_numeric($_POST['ph'])) {
+        if (validName($_POST['fn'])&&validName($_POST['ln'])&&validAge($_POST['age'])
+            &&validPhone($_POST['ph'])) {
 
             $_SESSION ['fn'] = $_POST['fn'];
             $_SESSION ['ln'] = $_POST['ln'];
@@ -57,13 +58,13 @@ $f3->route('GET|POST /form', function($f3) {
         else
         {
             //instantiate an error array with message
-            if(!validString($_POST['fn'])||validString($_POST['ln'])){
+            if(!validName($_POST['fn'])||validName($_POST['ln'])){
                 $f3->set("error: not a valid name.");
             }
-            if((!is_Numeric($_POST['age']))){
+            if((!validAge($_POST['age']))){
                 $f3->set("error: not a valid age.");
             }
-            if(!is_numeric($_POST['ph'])){
+            if(!validPhone($_POST['ph'])){
                 $f3->set("error: not a valid phone number.");
             }
         }
@@ -76,7 +77,7 @@ $f3->route('GET|POST /info', function($f3) {
     //check if $POST even exists, then validate
     if (isset($_POST['em'])&&isset($_POST['st'])&&isset($_POST['bio'])) {
         //check valid strings and numbers
-        if (filter_var($_POST['em'], FILTER_VALIDATE_EMAIL)&&
+        if (validEmail($_POST['em'])&&
             validString($_POST['st'])) {
 
             $_SESSION ['em'] = $_POST['em'];
@@ -88,10 +89,10 @@ $f3->route('GET|POST /info', function($f3) {
         else
         {
             //instantiate an error array with message
-            if(!(filter_var($_POST['em'], FILTER_VALIDATE_EMAIL))){
+            if(!validEmail($_POST['em'])){
                 $f3->set("error: not a valid email.");
             }
-            if(!validString($_POST['st'])){
+            if(!(validString($_POST['st']))){
                 $f3->set("error: not a valid state.");
             }
         }
