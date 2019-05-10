@@ -23,12 +23,16 @@
 <body>
     <h1>Profile</h1>
     <section class="container-fluid border">
-        <form class ="row" action ="#">
+        <form class ="row" method ="post" action ="#">
             <div class="col-sm-4">
                 <label>Email:</label>
                     <input class = "form-control" type ="text" name ="em">
                 <label>State</label>
-                    <input class = "form-control" type ="text" name ="st">
+                <select class="form-control" name='st'>
+                    <repeat group="{{ @states }}" value="{{ @stateChoices }}">
+                        <option>{{ @stateChoices }}</option>
+                    </repeat>
+                </select>
             </div>
             <div class="col-sm-4">
                 <label>Biography</label>
