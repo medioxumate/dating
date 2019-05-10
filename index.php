@@ -27,6 +27,23 @@ $f3 = Base::instance();
 //debugging in fat free is difficult
 $f3->set('DEBUG', 3);
 
+$f3->set('in', array('tv', 'puzzles', 'movies', 'reading', 'cooking',
+    'playing cards', 'board games', 'video games'));
+
+$f3->set('out', array('swimming', 'hopping', 'singing', 'floating',
+    'collecting', 'croaking'));
+
+//State array
+$f3->set('states', array('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado',
+    'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois',
+    'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland',
+    'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana',
+    'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
+    'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
+    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah',
+    'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
+    'American Samoa', 'District of Columbia', 'Guam', 'Marshall Islands', 'Northern Mariana Islands',
+    'Palau', 'Puerto Rico', 'Virgin Islands'));
 
 //Define a default root
 $f3->route('GET /', function(){
@@ -58,14 +75,17 @@ $f3->route('GET|POST /form', function($f3) {
         else
         {
             //instantiate an error array with message
-            if(!validName($_POST['fn'])||validName($_POST['ln'])){
-                $f3->set("error: not a valid name.");
+            if(!validName($_POST['fn'])){
+                $f3->set("errors['fn']", "error: not a valid name.");
             }
-            if((!validAge($_POST['age']))){
-                $f3->set("error: not a valid age.");
+            if(!validName($_POST['ln'])){
+                $f3->set("errors['ln']", "error: not a valid name.");
+            }
+            if(!validAge($_POST['age'])){
+                $f3->set("errors['age']", "error: not a valid age.");
             }
             if(!validPhone($_POST['ph'])){
-                $f3->set("error: not a valid phone number.");
+                $f3->set("errors['ph']", "error: not a valid phone number.");
             }
         }
     }
@@ -101,7 +121,6 @@ $f3->route('GET|POST /info', function($f3) {
 });
 
 $f3->route('GET|POST /hobbies', function() {
-
     //display a view
     $view = new Template();
     echo $view->render('views/form3.html');
