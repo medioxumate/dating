@@ -59,16 +59,19 @@ $f3->route('GET|POST /form', function($f3) {
 
     //check if $POST even exists, then validate
     if (isset($_POST['fn'])&&isset($_POST['ln'])&&isset($_POST['age'])
-        &&isset($_POST['g'])&&isset($_POST['ph'])) {
+        &&isset($_POST['ph'])) {
+
         //check valid strings and numbers
-        if (validName($_POST['fn'])&&validName($_POST['ln'])&&validAge($_POST['age'])
-            &&validPhone($_POST['ph'])) {
+        if (validAge($_POST['age']) && validName($_POST['fn'])
+            && validName($_POST['ln'])&& validPhone($_POST['ph'])) {
 
             $_SESSION ['fn'] = $_POST['fn'];
             $_SESSION ['ln'] = $_POST['ln'];
             $_SESSION ['age'] = $_POST['age'];
-            $_SESSION ['g'] = $_POST['g'];
             $_SESSION ['ph'] = $_POST['ph'];
+            if(isset($_POST['g'])){
+                $_SESSION ['g'] = $_POST['g'];
+            }
 
             $f3->reroute('/info');
         }
@@ -95,14 +98,15 @@ $f3->route('GET|POST /form', function($f3) {
 $f3->route('GET|POST /info', function($f3) {
     $template = new Template();
     //check if $POST even exists, then validate
-    if (isset($_POST['em'])&&isset($_POST['st'])&&isset($_POST['bio'])) {
+    if (isset($_POST['em'])&&isset($_POST['st'])) {
         //check valid strings and numbers
-        if (validEmail($_POST['em'])&&
-            validString($_POST['st'])) {
+        if (validEmail($_POST['em']) && validState($_POST['st'])) {
 
             $_SESSION ['em'] = $_POST['em'];
             $_SESSION ['st'] = $_POST['st'];
-            $_SESSION ['bio'] = $_POST['bio'];
+            if(isset($_POST['bio'])){
+                $_SESSION ['bio'] = $_POST['bio'];
+            }
 
             $f3->reroute('/hobbies');
         }
@@ -110,10 +114,10 @@ $f3->route('GET|POST /info', function($f3) {
         {
             //instantiate an error array with message
             if(!validEmail($_POST['em'])){
-                $f3->set("error: not a valid email.");
+                $f3->set("errors['em']", "error: not a valid email.");
             }
-            if(!(validString($_POST['st']))){
-                $f3->set("error: not a valid state.");
+            if(!validState($_POST['st'])){
+                $f3->set("errors['st']", "error: not a valid state.");
             }
         }
     }
@@ -123,18 +127,23 @@ $f3->route('GET|POST /info', function($f3) {
 $f3->route('GET|POST /hobbies', function() {
     //display a view
     $view = new Template();
+
+    //check if $POST even exists, then validate
+    if (isset($_POST['in'])&&isset($_POST['out'])) {
+        //check valid strings and numbers
+        if (validIndoor($_POST['in']) && validOutdoor($_POST['out'])) {
+            $_SESSION ['in'] = $_POST['in'];
+            $_SESSION ['out'] = $_POST['out'];
+        }
+    }
+
     echo $view->render('views/form3.html');
 });
 
 $f3->route('GET|POST /profile', function(){
     //display a view
     $view = new Template();
-/*
-    $_SESSION ['hb'] = $_POST['hobbies'];
-    foreach($_SESSION['hb'] as $value){
-        echo $value.',';
-    };
-*/
+
     echo $view->render('views/profile.html');
 });
 
