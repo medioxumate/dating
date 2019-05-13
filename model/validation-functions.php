@@ -25,7 +25,7 @@ function validPhone($phone){
 }
 
 function validEmail($email){
-    return filter_var($_POST['em'], FILTER_VALIDATE_EMAIL);
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
 }
 
 function validState($state){
@@ -52,40 +52,31 @@ function validState($state){
 }
 
 function validIndoor(array $indoor){
-    $validIndoor = array('tv','puzzles', 'movies', 'reading', 'cooking',
+/*  $validIndoor = array('tv','puzzles', 'movies', 'reading', 'cooking',
         'playing cards', 'board games', 'video games');
 
     $valid = false;
     $count = 0;
-    foreach ($validIndoor as $door){
-        foreach ($indoor as $in){
-            if($door == $in){
-                $count++;
-            }
+    foreach ($indoor as $in){
+        if(!empty($in)){
+
         }
     }
-    if($count == sizeof($indoor)){
-        $valid = true;
-    }
 
-    return $valid;
+    return $valid;*/
 }
 
 function validOutdoor(array $outdoor){
-    $validOutdoor = array('swimming','hopping', 'floating', 'collecting', 'croaking');
+/*    $validOutdoor = array('swimming','hopping', 'floating', 'collecting', 'croaking');
 
     $valid = false;
     $count = 0;
     foreach ($validOutdoor as $door){
-        foreach ($outdoor as $out){
-            if($door == $out){
-                $count++;
-            }
-        }
+        foreach ()
     }
     if($count == sizeof($outdoor)){
         $valid = true;
     }
 
-    return $valid;
+    return $valid;*/
 }
