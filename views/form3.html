@@ -4,8 +4,8 @@
 * Created in PhpStorm.
 * implements Bootstrap
 * @author Brian Kiehn
-* @version 2.0
-* @date 5/5/2019
+* @version 3.0
+* @date 5/12/2019
 >
 <html lang="en">
 <head>
@@ -29,54 +29,74 @@
                 <div class="col-12">
                     <p>In-door Interests</p>
                 </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="tv" value ="tv">tv</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="pz" value ="puzzles">puzzles</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="mi" value ="movies">movies</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="rd" value ="reading">reading</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="ck" value ="cooking">cooking</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="pc" value ="playing cards">playing cards</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="bg" value ="board games">board games</label>
-                </div>
-                <div class="col-3">
-                    <label><input type ="checkbox" name = in[] id="vg" value ="video games">video games</label>
-                </div>
+                <repeat group="{{ @in }}" value="{{ @inOption }}">
+                    <div class="col-3">
+                    <label><input type="checkbox" name="in[]" value="{{ @inOption }}"
+                        <check if="{{ !empty(@in) && in_array(@inOption, @in) }}">
+                            checked="checked"
+                        </check>
+                        >{{ @inOption }}</label>
+                    </div>
+                </repeat>
             </div>
+            <!--<div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="tv" value ="tv">tv</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="pz" value ="puzzles">puzzles</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="mi" value ="movies">movies</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="rd" value ="reading">reading</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="ck" value ="cooking">cooking</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="pc" value ="playing cards">playing cards</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="bg" value ="board games">board games</label>
+                </div>
+                <div class="col-3">
+                    <label><input type ="checkbox" name ="in[]" id="vg" value ="video games">video games</label>
+                </div>
+            </div>-->
             <div class ="row">
                 <div class ="col-12">
                     <p>Out-door Interests</p>
                 </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="sw" value ="swimming">swimming</label>
-                </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="hp" value ="hopping">hopping</label>
-                </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="sg" value ="singing">singing</label>
-                </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="fl" value ="floating">floating</label>
-                </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="cl" value ="collecting">collecting</label>
-                </div>
-                <div class ="col-3">
-                    <label><input type ="checkbox" name = out[] id="cr" value ="croaking">croaking</label>
-                </div>
+                <repeat group="{{ @out }}" value="{{ @outOption }}">
+                    <div class="col-3">
+                        <label><input type="checkbox" name="out[]" value="{{ @outOption }}"
+                            <check if="{{ !empty(@out) && in_array(@outOption, @out) }}">
+                                checked="checked"
+                            </check>
+                            >{{ @inOption }}</label>
+                    </div>
+                </repeat>
             </div>
+                <!--<div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="sw" value ="swimming">swimming</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="hp" value ="hopping">hopping</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="sg" value ="singing">singing</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="fl" value ="floating">floating</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="cl" value ="collecting">collecting</label>
+                </div>
+                <div class ="col-3">
+                    <label><input type ="checkbox" name ="out[]" id="cr" value ="croaking">croaking</label>
+                </div>
+            </div>-->
             <div class ="row">
                 <button type ="submit">Next</button>
                 <button type ="reset">Reset</button>
