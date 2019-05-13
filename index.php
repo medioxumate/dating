@@ -27,9 +27,9 @@ $f3 = Base::instance();
 //debugging in fat free is difficult
 $f3->set('DEBUG', 3);
 
+//Interests arrays
 $f3->set('in', array('tv', 'puzzles', 'movies', 'reading', 'cooking',
     'playing cards', 'board games', 'video games'));
-
 $f3->set('out', array('swimming', 'hopping', 'singing', 'floating',
     'collecting', 'croaking'));
 
@@ -44,6 +44,13 @@ $f3->set('states', array('Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California
     'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
     'American Samoa', 'District of Columbia', 'Guam', 'Marshall Islands', 'Northern Mariana Islands',
     'Palau', 'Puerto Rico', 'Virgin Islands'));
+
+//sticky
+$f3->set('fn', ' ');
+$f3->set('ln', ' ');
+$f3->set('age', ' ');
+$f3->set('ph', ' ');
+$f3->set('em', ' ');
 
 //Define a default root
 $f3->route('GET /', function(){
@@ -90,6 +97,10 @@ $f3->route('GET|POST /form', function($f3) {
             if(!validPhone($_POST['ph'])){
                 $f3->set("errors['ph']", "error: not a valid phone number.");
             }
+            $f3->set('fn', $_POST['fn']);
+            $f3->set('ln', $_POST['ln']);
+            $f3->set('age', $_POST['age']);
+            $f3->set('ph', $_POST['ph']);
         }
     }
     echo $template->render('views/form1.html');
@@ -97,6 +108,7 @@ $f3->route('GET|POST /form', function($f3) {
 
 $f3->route('GET|POST /info', function($f3) {
     $template = new Template();
+
     //check if $POST even exists, then validate
     if (isset($_POST['em'])&&isset($_POST['st'])) {
         //check valid strings and numbers
@@ -128,21 +140,19 @@ $f3->route('GET|POST /hobbies', function() {
     //display a view
     $view = new Template();
 
-    //check if $POST even exists, then validate
-    if (isset($_POST['in'])&&isset($_POST['out'])) {
-        //check valid strings and numbers
-        if (validIndoor($_POST['in']) && validOutdoor($_POST['out'])) {
-            $_SESSION ['in'] = $_POST['in'];
-            $_SESSION ['out'] = $_POST['out'];
-        }
-    }
-
     echo $view->render('views/form3.html');
 });
 
 $f3->route('GET|POST /profile', function(){
     //display a view
     $view = new Template();
+
+    if (isset($_POST['in']) && !empty($_POST['in'])) {
+        $_SESSION['in'] = $_POST['in'];
+    }
+    if (isset($_POST['out']) && !empty($_POST['out'])) {
+        $_SESSION['out'] = $_POST['out'];
+    }
 
     echo $view->render('views/profile.html');
 });
